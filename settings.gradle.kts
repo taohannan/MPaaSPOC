@@ -9,6 +9,10 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            url = uri("https://mvn.cloud.alipay.com/nexus/content/repositories/open/")
+            name = "alipay"
+        }
     }
 }
 dependencyResolutionManagement {
@@ -16,6 +20,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("https://mvn.cloud.alipay.com/nexus/content/repositories/open/")
+            name = "alipay"
+        }
     }
 }
 
