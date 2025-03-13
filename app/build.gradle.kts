@@ -19,13 +19,38 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs{
+        create("release"){
+            storeFile = file("keystore.jks")
+            storePassword = "abcd1234"
+            keyAlias = "keydemo"
+            keyPassword = "abcd1234"
+            enableV1Signing = true
+        }
+        getByName("debug"){
+            storeFile = file("keystore.jks")
+            storePassword = "abcd1234"
+            keyAlias = "keydemo"
+            keyPassword = "abcd1234"
+            enableV1Signing = true
+        }
+    }
+
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = false
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
         }
     }
     compileOptions {
@@ -41,6 +66,10 @@ android {
 }
 
 dependencies {
+
+    configurations.all {
+        exclude(group = "com.alipay.android.phone.thirdparty", module = "securityguard-build")
+    }
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
