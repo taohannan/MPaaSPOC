@@ -11,7 +11,7 @@ class MyApplication : Application(){
         mPaaS(this){
             callback { Log.d("MPaaS", "MPaaS init success") }
         }
-//        MP.init(this)
+        MP.init(this)
     }
 
 }
