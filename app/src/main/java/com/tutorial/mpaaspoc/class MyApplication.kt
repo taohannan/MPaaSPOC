@@ -9,7 +9,7 @@ class MyApplication : Application(){
     override fun onCreate() {
         super.onCreate()
         mPaaS(this){
-            callback { Log.d("MPaaS", "MPaaS init success") }
+            callback { Log.wtf("MPaaS", "MPaaS init success") }
         }
         MP.init(this)
     }
