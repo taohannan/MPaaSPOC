@@ -24,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="mpaas.init.param"
+            android:value="com.tutorial.mpaaspoc.MriverInitImpl" />
     </application>
 
 </manifest>
